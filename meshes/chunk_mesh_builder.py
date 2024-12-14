@@ -1,6 +1,18 @@
 from settings import *
 
 def is_void(voxel_pos, chunk_voxels):
+    
+    """
+    Determines if a voxel at a given position is void (i.e., has an ID of 0).
+
+    Args:
+        voxel_pos (tuple): A tuple (x, y, z) representing the position of the voxel within the chunk.
+        chunk_voxels (list): A flat list representing the voxel data of the chunk.
+
+    Returns:
+        bool: True if the voxel is void (ID of 0), False otherwise.
+    """
+    
     x, y, z = voxel_pos
     if 0 <= x < CHUNK_SIZE and 0 <= y < CHUNK_SIZE and 0 <= z < CHUNK_SIZE: # Check if voxel is within chunk size
         if chunk_voxels[x + CHUNK_SIZE * z + CHUNK_AREA * y]: # Check if the voxel has a ID of 1 or more.
@@ -15,6 +27,21 @@ def add_data(vertex_data, index, *vertices):
     return index
 
 def build_chunk_mesh(chunk_voxels, format_size):
+    
+    """
+    Builds a mesh for a chunk of voxels.
+    Args:
+        chunk_voxels (ndarray): A 3D array representing the voxel data of the chunk.
+        format_size (int): The size of the format for each vertex attribute.
+    Returns:
+        ndarray: A 1D array containing the vertex data for the chunk mesh.
+    The function iterates through each voxel in the chunk and checks if the voxel is not empty.
+    For each non-empty voxel, it checks the visibility of each face (top, bottom, right, left, back, front).
+    If a face is visible (i.e., adjacent voxel is empty), it adds the vertex data for that face to the vertex_data array.
+    The vertex data includes the position (x, y, z), voxel_id, and face_id.
+    The function returns the vertex_data array truncated to the actual size of the data.
+    """
+    
     vertex_data = np.empty(CHUNK_VOL * 18 * format_size, dtype='uint8')
     # Maximum number of faces rendered per voxel is 3 so 18 vertices total, and 5 attributes per vertex
     index = 0

@@ -23,7 +23,7 @@ class Chunk:
             for z in range(CHUNK_SIZE):
                 for y in range(CHUNK_SIZE):
                     voxels[x + CHUNK_SIZE * z + CHUNK_AREA * y] = (
-                        x + y + z if int(glm.simplex(glm.vec3(x,y,z)*0.1)+1) else 0
+                        x + y + z if int(glm.simplex(glm.vec3(x,y,z)*0.1)+1) else 0  # Generate a simplex noise value at the 3D position and multiplies by 0.1 to scale coordinates smoothly.
                         )
                     # Instead of storing the positions as 3D array (x,y,z). We iterate through each voxel like a list
                     # using an index.
