@@ -5,6 +5,7 @@ import sys
 from shader_program import ShaderProgram
 from scene import Scene
 from player import Player
+from textures import Textures
 
 
 class VoxelEngine:
@@ -13,7 +14,7 @@ class VoxelEngine:
         pg.display.gl_set_attribute(pg.GL_CONTEXT_MAJOR_VERSION, 3)
         pg.display.gl_set_attribute(pg.GL_CONTEXT_MINOR_VERSION, 3)
         pg.display.gl_set_attribute(pg.GL_CONTEXT_PROFILE_MASK, pg.GL_CONTEXT_PROFILE_CORE)
-        pg.display.gl_set_attribute(pg.GL_DEPTH_SIZE, 24) #
+        pg.display.gl_set_attribute(pg.GL_DEPTH_SIZE, 24)
 
         pg.display.set_mode(WIN_RES, flags=pg.OPENGL | pg.DOUBLEBUF)
         self.ctx = mgl.create_context()
@@ -32,6 +33,7 @@ class VoxelEngine:
         self.on_init()
 
     def on_init(self):
+        self.textures = Textures(self)
         self.player = Player(self)
         self.shader_program = ShaderProgram(self)
         self.scene = Scene(self)
