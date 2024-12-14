@@ -1,2 +1,5 @@
 venv/
-.gitignore
+*.gitignore
+__pycache__/
+*.pyc
+documentation/

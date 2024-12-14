@@ -24,6 +24,7 @@ class QuadMesh(BaseMesh):
             (0, 1, 0), (1, 1, 0), (0, 0, 1)
         ]
         vertex_data = np.hstack([vertices, colors], dtype='float32')
+        print(vertex_data)
         return vertex_data
 
 
