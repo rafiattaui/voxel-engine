@@ -1,0 +1,1 @@
+# A quad mesh is a geometric mesh where an object surface is divided into four-sided polygons, known as quads.
