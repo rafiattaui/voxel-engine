@@ -1,4 +1,24 @@
 from settings import *
+import numpy as np
+
+def save_vertex_data_to_file(vertex_data, filename):
+    """
+    Saves vertex data to a file in a readable format, including headers.
+
+    Args:
+        vertex_data (ndarray): The 1D array containing vertex data.
+        filename (str): The name of the file to save the data to.
+    """
+    with open(filename, 'w') as file:
+        # Write the header line
+        header = "x, y, z, voxel_id, face_id\n"
+        file.write(header)
+        
+        # Write the vertex data
+        for i in range(0, len(vertex_data), 5):  # Assuming format_size is 5 (x, y, z, voxel_id, face_id)
+            line = f"{vertex_data[i]:3}, {vertex_data[i+1]:3}, {vertex_data[i+2]:3}, {vertex_data[i+3]:3}, {vertex_data[i+4]:3}\n"
+            file.write(line)
+
 
 def is_void(voxel_pos, chunk_voxels):
     
@@ -114,6 +134,8 @@ def build_chunk_mesh(chunk_voxels, format_size):
                     v3 = (x + 1, y    , z + 1, voxel_id, 5)
 
                     index = add_data(vertex_data, index, v0, v2, v1, v0, v3, v2)
+                    
+    #save_vertex_data_to_file(vertex_data, "vertex_data.txt")
+    #print("Vertex data has been saved to vertex_data.txt")
     
-    print(chunk_voxels)
     return vertex_data[:index+1]
