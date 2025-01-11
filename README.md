@@ -1,6 +1,6 @@
 # Voxel Engine
 
-![alt text](documentation/Screenshot%202025-01-11%20121008.png)
+<img src="documentation/Voxel.png" alt="alt text" width="50%">
 
 Simple 3D Voxel Engine made with Python and OpenGL for Algorithm and Programming Class final project.
 Based on **Coder Space's** tutorial video
