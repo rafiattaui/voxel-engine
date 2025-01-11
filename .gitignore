@@ -2,4 +2,3 @@ venv/
 *.gitignore
 __pycache__/
 *.pyc
-documentation/
