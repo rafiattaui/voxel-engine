@@ -5,7 +5,7 @@
 Simple 3D Voxel Engine made with Python and OpenGL for Algorithm and Programming Class final project.
 Based on <span style="color: red">Coder Space's</span> tutorial video
 
-## <iframe width="560" height="315" src="https://www.youtube.com/embed/Ab8TOSFfNp4?si=hIrefsw5trEK-r6B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+## [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/Ab8TOSFfNp4/0.jpg)](http://www.youtube.com/watch?v=Ab8TOSFfNp4)
 
 ---
 
